@@ -35,7 +35,7 @@ def chunked(
         If HEX file contains no data in program memory range.
     """
     hexdata = bincopy.BinFile()
-    hexdata.add_microchip_hex_file(hexfile)
+    hexdata.add_microchip_hex_file(hexfile, True)
     hexdata.crop(*bootattrs.memory_range)
     chunk_size = bootattrs.max_packet_length - Command.get_size()
     chunk_size -= chunk_size % bootattrs.write_size
